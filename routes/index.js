@@ -43,7 +43,7 @@ router.get('/', function(req, res) {
   //res.redirect('/directory')
 
   // respond with html
-  res.render('directory.html')
+  res.render('Homepage.html')
 
 });
 
