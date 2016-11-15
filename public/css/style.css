@@ -9,7 +9,7 @@ h1{
     /*font-family: 'Cedarville Cursive', cursive;*/
     font-family: 'IM Fell DW Pica SC', serif;
     text-align: center;
-    font-size:3.8em;
+    font-size:5em;
     padding-top: 20%
 }
 
@@ -58,7 +58,9 @@ opacity: 0.5
 .cover-button{
 	margin:40px 20px 100px 20px;
 	background-color: Transparent; 
-	border:solid 3px;
+	/*border:solid 3px;*/
+	border: none;
+    border-bottom: 3px solid rgba(0,0,0,1);
 	font-weight: bold;
     font-family: 'IM Fell DW Pica SC', serif;
 	font-size: 18pt;
@@ -71,11 +73,27 @@ opacity: 0.5
 	border-bottom: 3px solid currentColor; 
 	background-color: #000; 
 	color:white;
-
+	border-color: black;
 }
 
 
 /*add card page*/
+
+#addcards-content{
+	/*background-image: url(img/paper.jpg) ;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    min-width: 100%;
+  	min-height: 100%;*/
+  	vertical-align: middle;
+	text-align: center;
+}
+
 
 #theInput{
   width: 15%;
@@ -118,14 +136,11 @@ opacity: 0.5
 
 }
 
-
 .submit-button{
-  margin-top: 2%;
-}
-
-.submit-button{
-	margin:40px 0px 100px 0px;
+	z-index: 999;
+	margin:20px 0px 100px 0px;
 	background-color: Transparent; 
+	/*color:black;*/
 	border:solid 3px;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 12pt;
@@ -139,6 +154,8 @@ opacity: 0.5
 /***************************/
 
 input:focus,
+
+
 select:focus,
 textarea:focus,
 button:focus {
