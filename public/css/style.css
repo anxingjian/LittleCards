@@ -4,5 +4,143 @@
 
 
 h1{
-	font-family: 'Pacifico', cursive;
+    /*font-family: 'Rock Salt', cursive;*/
+    /*font-family: 'Homemade Apple', cursive;*/
+    /*font-family: 'Cedarville Cursive', cursive;*/
+    font-family: 'IM Fell DW Pica SC', serif;
+    text-align: center;
+    font-size:3.8em;
+    padding-top: 20%
+}
+
+input{
+  padding: 2px;
+  text-align: center;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  font-family: 'Muli', sans-serif;
+  font-size: 20px;
+  color: #000;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+opacity: 0.5
+}
+
+/*homepage*/
+
+.hp-content {
+	width: 100%;
+	display: table;
+	vertical-align: middle;
+	text-align: center;
+	background-color: transparent;
+}
+
+.home-section{
+	background-image: url(img/paper2.jpg) ;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+    /*background-position: left top;*/
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+	
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.cover-button{
+	margin:40px 20px 100px 20px;
+	background-color: Transparent; 
+	border:solid 3px;
+	font-weight: bold;
+    font-family: 'IM Fell DW Pica SC', serif;
+	font-size: 18pt;
+	text-align: center;
+	cursor:pointer;
+	text-decoration: none;
+}
+
+.cover-button:hover{
+	border-bottom: 3px solid currentColor; 
+	background-color: #000; 
+	color:white;
+
+}
+
+
+/*add card page*/
+
+#theInput{
+  width: 15%;
+}
+
+#theInput1{
+  width: 20%;
+}
+
+#theInput2{
+  width: 4%;
+}
+#theInput3{
+  width: 5%;
+}
+
+#addcards-content{
+	padding-top:23%;
+    font-family: 'IM Fell DW Pica SC', serif;
+    font-size:2.2em;
+}
+
+.form-group{
+	padding-top:20%;
+    font-family: 'Muli', sans-serif;
+    font-size:16px;
+    border: none;
+}
+
+.form-group2{
+	padding-top:3%;
+    font-family: 'Muli', sans-serif;
+    font-size:16px;
+    border: none;
+}
+
+#image-input{
+  border: none;
+  font-size:16px;
+
+}
+
+
+.submit-button{
+  margin-top: 2%;
+}
+
+.submit-button{
+	margin:40px 0px 100px 0px;
+	background-color: Transparent; 
+	border:solid 3px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 12pt;
+	text-align: center;
+	cursor:pointer;
+	text-decoration: none;
+}
+
+/***************************/
+/* Default Form Input Code */
+/***************************/
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }

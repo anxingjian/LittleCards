@@ -59,6 +59,12 @@ router.get('/add-person-with-image', function(req,res){
 
 })
 
+router.get('/add-cards', function(req,res){
+
+  res.render('add-cards.html')
+
+})
+
 router.get('/directory', function(req,res){
 
   res.render('directory.html')
@@ -94,17 +100,6 @@ router.get('/edit/:id', function(req,res){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 router.get('/edit/:id', function(req,res){
 
   var requestedId = req.params.id;
@@ -125,7 +120,6 @@ router.get('/edit/:id', function(req,res){
 
     return res.render('edit.html',viewData);
   })
-
 })
 
 
@@ -142,8 +136,8 @@ router.post('/api/create', function(req,res){
     slug : req.body.name.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-')
   }
 
-  if (req.body.hasGlasses == 'yes') personObj['hasGlasses'] = true;
-  else personObj['hasGlasses'] = false;
+  // if (req.body.hasGlasses == 'yes') personObj['hasGlasses'] = true;
+  // else personObj['hasGlasses'] = false;
 
   var person = new Person(personObj);
 
