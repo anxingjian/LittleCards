@@ -18,106 +18,69 @@
 </head>
 <body>
 
-  <div class="container" method="post" action="/api/create" id="myForm">
+  <div class="container" >
     <div class="row">
-      <!-- <h1>Let's add an ITP Person</h1> -->
 
-      <div class="col-md-12 centered" >
-        <div id = addcards-content>       
-          My friend <input id="theInput" placeholder="" autofocus> sent me this card from <input id="theInput1" placeholder="" autofocus>, on <input id="theInput2" placeholder="" autofocus>/<input id="theInput2" placeholder="" autofocus>/<input id="theInput3" placeholder="" autofocus> .
-        </div>
+      <!-- fill the blank -->
+      <div id = addcards-content>  
+        <form method="post" action="/api/create" id="myForm">
+
+          <div class="col-md-12 centered" >
+            My friend <input id="theInput" placeholder="" autofocus> sent me this card from <input id="theInput1" placeholder="" autofocus>, on <input id="theInput2" placeholder="" autofocus>/<input id="theInput2" placeholder="" autofocus>/<input id="theInput3" placeholder="" autofocus> .
+          </div>
+
+          <!-- upload images  -->
+          <div class="col-md-4 centered" >
+
+           <div class="form-group">
+            <label for="image">Please upload the graphic side</label>
+            <input type="file" name="image" id="image-input" value="Select a Photo">
+          </div>
+
+          <div class="form-group2">
+            <label for="image">Please upload the content side</label>
+            <input type="file" name="image" id="image-input" value="Select a Photo">
+          </div>
+
+          <button type="submit" class="submit-button">Submit</button>
+          </div>
+        </form>
       </div>
+    </div>
+  </div>
+  <!-- <button id="submitButton" type="submit" class="submit-button" >Submit</button> -->
 
-      <!-- <form method="post" action="/api/create" id="myForm"> -->
-        <!-- <div class="form-group">
+</body>
 
-            <input type="text" class="form-control" id="name" placeholder="Name" name="name" required>
-            <label for="name">sent me this card from</label>
-            <input type="text" class="form-control" id="where" placeholder="Place" name="where" required>
-            <label for="place">,on</label>
-            <input type="text" class="form-control" id="month" name="month" required>
-            <label for="month">/</label>
-            <input type="text" class="form-control" id="date" name="date" required>
-            <label for="date">/</label>
-            <input type="text" class="form-control" id="year" name="year" required>
-            <label for="year">.</label>
+<!-- JQuery script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 
-            <p class="help-block">Enter interests separated by comma</p>
-       
-            <label for="link">Link</label>
-            <input type="text" class="form-control" id="link" placeholder="Link" name="link" required>
-          
-            <label for="imageUrl">ImageURL</label>
-            <input type="text" class="form-control" id="imageUrl" placeholder="imageUrl" name="imageUrl" required>
-          </div> -->
+<!-- JQuery validate -->
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
 
-
-          <!-- <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Name" name="name" required>
-          </div>
-          <div class="form-group">
-            <label for="itpYear">ITP Year</label>
-            <input type="text" class="form-control" id="itpYear" placeholder="Year" name="itpYear" required>
-          </div>
-          <div class="form-group">
-            <label for="interests">Interests</label>
-            <input type="text" class="form-control" id="interests" name="interests" required>
-            <p class="help-block">Enter interests separated by comma</p>
-          </div>
-          <div class="form-group">
-            <label for="link">Link</label>
-            <input type="text" class="form-control" id="link" placeholder="Link" name="link" required>
-          </div>  
-          <div class="form-group">
-            <label for="imageUrl">ImageURL</label>
-            <input type="text" class="form-control" id="imageUrl" placeholder="imageUrl" name="imageUrl" required>
-          </div> -->
-           <!--  <input type="radio" name="hasGlasses" value="yes">Yes<br>
-           <input type="radio" name="hasGlasses" value="no">No         -->                   
-           <!-- </form>  -->
-
-           <div class="col-md-4 centered" >
-             <div class="form-group">
-              <label for="image">Please upload the graphic side</label>
-              <input type="file" name="image" id="image-input" value="Select a Photo">
-            </div>
-            <div class="form-group2">
-              <label for="image">Please upload the content side</label>
-              <input type="file" name="image" id="image-input" value="Select a Photo">
-            </div>
-
-          </div>
-
-        </div>
-         <!-- <button type="submit" class="submit-button">Submit</button> -->
-         <button id="submitButton" type="button" class="submit-button" >Submit</button>
-
-      </div>
-
-    </body>
-
-    <!-- JQuery script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-
-    <!-- JQuery validate -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
-
-    <script type="text/javascript">
-      $("#myForm").validate({
-        rules: {
-            // compound rule
-            itpYear: {
+<script type="text/javascript">
+  $("#myForm").validate({
+    rules: {
+            name:{
+              required: true
+            },
+            where:{
+              required: true
+            },
+            month: {
               required: true,
               number: true
             },
-            link: {
+            date: {
               required: true,
-              url: true
-            }            
+              number: true
+            },   
+            year: {
+              required: true,
+              number: true
+            }      
           }
-
         });
-      </script>
+</script>
 
       </html>

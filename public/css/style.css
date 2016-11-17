@@ -4,13 +4,13 @@
 
 
 h1{
-    /*font-family: 'Rock Salt', cursive;*/
-    /*font-family: 'Homemade Apple', cursive;*/
-    /*font-family: 'Cedarville Cursive', cursive;*/
-    font-family: 'IM Fell DW Pica SC', serif;
-    text-align: center;
-    font-size:5em;
-    padding-top: 20%
+  /*font-family: 'Rock Salt', cursive;*/
+  /*font-family: 'Homemade Apple', cursive;*/
+  /*font-family: 'Cedarville Cursive', cursive;*/
+  font-family: 'IM Fell DW Pica SC', serif;
+  text-align: center;
+  font-size:5em;
+  padding-top: 20%
 }
 
 input{
@@ -26,7 +26,7 @@ input{
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-opacity: 0.5
+  opacity: 0.5
 }
 
 /*homepage*/
@@ -45,11 +45,11 @@ opacity: 0.5
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
-    /*background-position: left top;*/
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-	
+  /*background-position: left top;*/
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+
   /* Preserve aspet ratio */
   min-width: 100%;
   min-height: 100%;
@@ -60,13 +60,13 @@ opacity: 0.5
 	background-color: Transparent; 
 	/*border:solid 3px;*/
 	border: none;
-    border-bottom: 3px solid rgba(0,0,0,1);
-	font-weight: bold;
-    font-family: 'IM Fell DW Pica SC', serif;
-	font-size: 18pt;
-	text-align: center;
-	cursor:pointer;
-	text-decoration: none;
+  border-bottom: 3px solid rgba(0,0,0,1);
+  font-weight: bold;
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size: 18pt;
+  text-align: center;
+  cursor:pointer;
+  text-decoration: none;
 }
 
 .cover-button:hover{
@@ -78,22 +78,6 @@ opacity: 0.5
 
 
 /*add card page*/
-
-#addcards-content{
-	/*background-image: url(img/paper.jpg) ;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    min-width: 100%;
-  	min-height: 100%;*/
-  	vertical-align: middle;
-	text-align: center;
-}
-
 
 #theInput{
   width: 15%;
@@ -111,23 +95,25 @@ opacity: 0.5
 }
 
 #addcards-content{
+  vertical-align: middle;
+  text-align: center;
 	padding-top:23%;
-    font-family: 'IM Fell DW Pica SC', serif;
-    font-size:2.2em;
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size:2.2em;
 }
 
 .form-group{
 	padding-top:20%;
-    font-family: 'Muli', sans-serif;
-    font-size:16px;
-    border: none;
+  font-family: 'Muli', sans-serif;
+  font-size:16px;
+  border: none;
 }
 
 .form-group2{
 	padding-top:3%;
-    font-family: 'Muli', sans-serif;
-    font-size:16px;
-    border: none;
+  font-family: 'Muli', sans-serif;
+  font-size:16px;
+  border: none;
 }
 
 #image-input{
@@ -154,10 +140,8 @@ opacity: 0.5
 /***************************/
 
 input:focus,
-
-
 select:focus,
 textarea:focus,
 button:focus {
-    outline: none;
+  outline: none;
 }

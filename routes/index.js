@@ -3,7 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 
 // our db models
-var Person = require("../models/person.js");
+var Card = require("../models/card.js");
 var Course = require("../models/course.js");
 
 // S3 File dependencies
@@ -47,6 +47,12 @@ router.get('/', function(req, res) {
 
 });
 
+router.get('/card-page', function(req,res){
+
+  res.render('card-page.html')
+
+})
+
 router.get('/add-person', function(req,res){
 
   res.render('add.html')
@@ -76,7 +82,7 @@ router.get('/edit/:id', function(req,res){
 
   var requestedId = req.params.id;
 
-  Person.findById(requestedId,function(err,data){
+  Card.findById(requestedId,function(err,data){
     if(err){
       var error = {
         status: "ERROR",
@@ -89,7 +95,7 @@ router.get('/edit/:id', function(req,res){
 
     var viewData = {
       pageTitle: "Edit " + data.name,
-      person: data
+      card: data
     }
 
     res.render('edit.html',viewData);
@@ -104,7 +110,7 @@ router.get('/edit/:id', function(req,res){
 
   var requestedId = req.params.id;
 
-  Person.findById(requestedId,function(err,data){
+  Card.findById(requestedId,function(err,data){
     if(err){
       var error = {
         status: "ERROR",
@@ -115,7 +121,7 @@ router.get('/edit/:id', function(req,res){
 
     var viewData = {
       status: "OK",
-      person: data
+      card: data
     }
 
     return res.render('edit.html',viewData);
@@ -127,21 +133,17 @@ router.post('/api/create', function(req,res){
 
   console.log(req.body);
 
-  var personObj = {
+  var cardObj = {
     name: req.body.name,
-    itpYear: req.body.itpYear,
-    interests: req.body.interests.split(','),
-    link: req.body.link,
-    imageUrl: req.body.imageUrl,
-    slug : req.body.name.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-')
+    where: req.body.where,
+    month: req.body.month,
+    date: req.body.date,
+    year: req.body.year
   }
 
-  // if (req.body.hasGlasses == 'yes') personObj['hasGlasses'] = true;
-  // else personObj['hasGlasses'] = false;
+  var card = new Card(cardObj);
 
-  var person = new Person(personObj);
-
-  person.save(function(err,data){
+  card.save(function(err,data){
     if(err){
       var error = {
         status: "ERROR",
@@ -152,12 +154,15 @@ router.post('/api/create', function(req,res){
 
     var jsonData = {
       status: "OK",
-      person: data
+      card: data
     }
 
     return res.json(jsonData);
 
   })
+
+    // return res.redirect('/directory');
+
 
 })
 
@@ -166,18 +171,17 @@ router.post('/api/edit/:id', function(req,res){
   console.log(req.body);
   var requestedId = req.params.id;
 
-  var personObj = {
+  var cardObj = {
     name: req.body.name,
-    itpYear: req.body.itpYear,
-    interests: req.body.interests.split(','),
-    link: req.body.link,
-    imageUrl: req.body.imageUrl,
-    slug : req.body.name.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'_')
+    where: req.body.where,
+    month: req.body.month,
+    date: req.body.date,
+    year: req.body.year
   }
 
-  console.log(personObj);
+  console.log(cardObj);
 
-  Person.findByIdAndUpdate(requestedId,personObj,function(err,data){
+  Card.findByIdAndUpdate(requestedId,cardObj,function(err,data){
     if(err){
       var error = {
         status: "ERROR",
@@ -188,7 +192,7 @@ router.post('/api/edit/:id', function(req,res){
 
     var jsonData = {
       status: "OK",
-      person: data
+      card: data
     }
 
     //return res.json(jsonData);
@@ -204,17 +208,13 @@ router.post('/api/create/image', multipartMiddleware, function(req,res){
   console.log('the incoming data >> ' + JSON.stringify(req.body));
   console.log('the incoming image file >> ' + JSON.stringify(req.files.image));
 
-  var personObj = {
+  var cardObj = {
     name: req.body.name,
-    itpYear: req.body.itpYear,
-    interests: req.body.interests.split(','),
-    link: req.body.link,
-    slug : req.body.name.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-')
+    where: req.body.where,
+    month: req.body.month,
+    date: req.body.date,
+    year: req.body.year
   }
-
-  if (req.body.hasGlasses == 'yes') personObj['hasGlasses'] = true;
-  else personObj['hasGlasses'] = false;
-
 
   // NOW, we need to deal with the image
   // the contents of the image will come in req.files (not req.body)
@@ -254,12 +254,12 @@ router.post('/api/create/image', multipartMiddleware, function(req,res){
 
         // now that we have the image
         // we can add the s3 url our person object from above
-        personObj['imageUrl'] = s3Path + cleanedFileName;
+        cardObj['imageUrl'] = s3Path + cleanedFileName;
 
         // now, we can create our person instance
-        var person = new Person(personObj);
+        var card = new Card(cardObj);
 
-        person.save(function(err,data){
+        card.save(function(err,data){
           if(err){
             var error = {
               status: "ERROR",
@@ -270,7 +270,7 @@ router.post('/api/create/image', multipartMiddleware, function(req,res){
 
           var jsonData = {
             status: "OK",
-            person: data
+            card: data
           }
 
           return res.json(jsonData);        
@@ -306,7 +306,7 @@ function cleanFileName (filename) {
 
 router.get('/api/get', function(req,res){
 
-  Person.find(function(err,data){
+  Card.find(function(err,data){
 
       if(err){
         var error = {
@@ -318,7 +318,7 @@ router.get('/api/get', function(req,res){
 
       var jsonData = {
         status: "OK",
-        people: data
+        cards: data
       }
 
       return res.json(jsonData);
@@ -327,13 +327,13 @@ router.get('/api/get', function(req,res){
 
 })
 
-router.get('/api/get/year/:itpYear',function(req,res){
+router.get('/api/get/year/:where',function(req,res){
 
-  var requestedITPYear = req.params.itpYear;
+  var requestedwhere = req.params.where;
 
-  console.log(requestedITPYear);
+  console.log(requestedwhere);
 
-  Person.find({itpYear:requestedITPYear},function(err,data){
+  Card.find({where:requestedwhere},function(err,data){
       if(err){
         var error = {
           status: "ERROR",
@@ -344,7 +344,7 @@ router.get('/api/get/year/:itpYear',function(req,res){
 
       var jsonData = {
         status: "OK",
-        people: data
+        cards: data
       }
 
       return res.json(jsonData);    
@@ -363,23 +363,18 @@ router.get('/api/get/query',function(req,res){
   var searchQuery = {};
 
   // if itpYear is in the query, add it to the searchQuery object
-  if(req.query.itpYear){
-    searchQuery['itpYear'] =  req.query.itpYear
+  if(req.query.where){
+    searchQuery['where'] =  req.query.where
   } 
   // in the above example, searchQuery is now --> { itpYear: 2016 }
 
   // if name is in the query, add it to the searchQuery object
   if(req.query.name){
-    searchQuery['name'] =  req.query.name
+    searchQuery['year'] =  req.query.year
   }
   // in the above example, searchQuery is now { itpYear: 2016, name: Sam}
 
-  // if hasGlasses is in the query, add it to the example
-  if(req.query.hasGlasses){
-    searchQuery['hasGlasses'] =  req.query.hasGlasses
-  }  
-
-  Person.find(searchQuery,function(err,data){
+  Card.find(searchQuery,function(err,data){
     res.json(data);
   })
 
@@ -392,10 +387,5 @@ router.get('/api/get/query',function(req,res){
 
 
 module.exports = router;
-
-
-
-
-
 
 

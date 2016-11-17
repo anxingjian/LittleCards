@@ -11,20 +11,22 @@ function renderPeeps(){
 		success : function(response) {
 			console.log(response);
 
-			var people = response.people;
+			var cards = response.cards;
 
-			for(var i=0;i<people.length;i++){
+			for(var i=0;i<cards.length;i++){
 				var htmlToAdd = '<div class="col-md-4">'+
-					'<img src='+people[i].imageUrl+' width="100">'+
-					'<h1>'+people[i].name+'</h1>'+
+					// '<img src='+cards[i].imageUrl+' width="100">'+
+					'<h1>'+cards[i].name+'</h1>'+
 					'<ul>'+
-						'<li>Year: '+people[i].itpYear+'</li>'+
-						'<li>Interests: '+people[i].interests+'</li>'+
+						'<li>Where: '+cards[i].where+'</li>'+
+						'<li>Month: '+cards[i].month+'</li>'+
+						'<li>Date: '+cards[i].date+'</li>'+
+						'<li>Year: '+cards[i].year+'</li>'+
 					'</ul>'+
-					'<a href="/edit/'+people[i]._id+'">Edit Person</a>'+
+					'<a href="/edit/'+cards[i]._id+'">Edit Person</a>'+
 				'</div>';
 			
-				jQuery("#people-holder").append(htmlToAdd);
+				jQuery("#cards-holder").append(htmlToAdd);
 			}
 
 
@@ -34,3 +36,6 @@ function renderPeeps(){
 }
 
 window.addEventListener('load', init())
+
+
+
