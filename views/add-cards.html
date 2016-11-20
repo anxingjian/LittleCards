@@ -26,13 +26,13 @@
         <form method="post" action="/api/create" id="myForm">
 
           <div class="col-md-12 centered" >
-            My friend <input id="theInput" placeholder="" autofocus> sent me this card from <input id="theInput1" placeholder="" autofocus>, on <input id="theInput2" placeholder="" autofocus>/<input id="theInput2" placeholder="" autofocus>/<input id="theInput3" placeholder="" autofocus> .
+            My friend <input id="name" name="name" autofocus> sent me this card from <input id="where" name="where" autofocus>, on <input id="month" name="month" autofocus>/<input id="date" name="date" placeholder="" autofocus>/<input id="year" name="year" placeholder="" autofocus> .
           </div>
 
           <!-- upload images  -->
-          <div class="col-md-4 centered" >
+          <!-- <div class="col-md-4 centered" > -->
 
-           <div class="form-group">
+          <!--  <div class="form-group">
             <label for="image">Please upload the graphic side</label>
             <input type="file" name="image" id="image-input" value="Select a Photo">
           </div>
@@ -40,12 +40,25 @@
           <div class="form-group2">
             <label for="image">Please upload the content side</label>
             <input type="file" name="image" id="image-input" value="Select a Photo">
-          </div>
+          </div> -->
 
-          <button type="submit" class="submit-button">Submit</button>
-          </div>
+          <!-- <button type="submit" class="submit-button">Submit</button> -->
+          <button type="submit" id="submitImg"><img src="img/submit.png" width="80px" height= "50px"></button>
+
+          <!-- </div> -->
         </form>
       </div>
+<!-- wind mill -->
+      <div class="windmill">
+        <div class="stick"></div>
+        <div class="wind">
+          <div class="wind1"></div>
+          <div class="wind2"></div>
+          <div class="wind3"></div>
+          <div class="wind4"></div>
+        </div>
+      </div>
+
     </div>
   </div>
   <!-- <button id="submitButton" type="submit" class="submit-button" >Submit</button> -->
@@ -61,26 +74,26 @@
 <script type="text/javascript">
   $("#myForm").validate({
     rules: {
-            name:{
-              required: true
-            },
-            where:{
-              required: true
-            },
-            month: {
-              required: true,
-              number: true
-            },
-            date: {
-              required: true,
-              number: true
-            },   
-            year: {
-              required: true,
-              number: true
-            }      
-          }
-        });
+      theInput:{
+        required: true
+      },
+      where:{
+        required: true
+      },
+      month: {
+        required: true,
+        number: true
+      },
+      date: {
+        required: true,
+        number: true
+      },   
+      year: {
+        required: true,
+        number: true
+      }      
+    }
+  });
 </script>
 
-      </html>
+</html>

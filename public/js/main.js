@@ -2,6 +2,12 @@
 
 function init() {
   renderPeeps();
+
+
+}
+
+function hpAdd(){
+	console.log("hi");
 }
 
 function renderPeeps(){
@@ -23,17 +29,20 @@ function renderPeeps(){
 						'<li>Date: '+cards[i].date+'</li>'+
 						'<li>Year: '+cards[i].year+'</li>'+
 					'</ul>'+
-					'<a href="/edit/'+cards[i]._id+'">Edit Person</a>'+
+					'<a href="/edit/'+cards[i]._id+'">Edit</a>'+
+					// '<button type="button" id="'+cards[i]._id+'" onclick="deleteAnimal(event)">Edit Animal</button>'+
+					'<a href="/api/delete/:'+cards[i]._id+'">delete</a>'
+
+					// '<button type="button" id="'+cards[i]._id+'" onclick="deleteAnimal(event)">Delete Animal</button>'
 				'</div>';
 			
 				jQuery("#cards-holder").append(htmlToAdd);
 			}
-
-
-
 		}
 	})	
 }
+
+
 
 window.addEventListener('load', init())
 

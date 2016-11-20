@@ -157,12 +157,9 @@ router.post('/api/create', function(req,res){
       card: data
     }
 
-    return res.json(jsonData);
+    return res.redirect('/directory');
 
   })
-
-    // return res.redirect('/directory');
-
 
 })
 
@@ -385,6 +382,34 @@ router.get('/api/get/query',function(req,res){
 })
 
 
+/**
+ * GET '/api/delete/:id'
+ * Receives a GET request specifying the animal to delete
+ * @param  {String} req.param('id'). The animalId
+ * @return {Object} JSON
+ */
+
+router.get('/api/delete/:id', function(req, res){
+
+  var requestedId = req.param('id');
+
+  // Mongoose method to remove, http://mongoosejs.com/docs/api.html#model_Model.findByIdAndRemove
+  Card.findByIdAndRemove(requestedId,function(err, data){
+    if(err || data == null){
+      var error = {status:'ERROR', message: 'Could not find that card to delete'};
+      return res.json(error);
+    }
+
+    // otherwise, respond back with success
+    var jsonData = {
+      status: 'OK',
+      message: 'Successfully deleted id ' + requestedId
+    }
+
+    res.json(jsonData);
+
+  })
+})
 
 module.exports = router;
 
