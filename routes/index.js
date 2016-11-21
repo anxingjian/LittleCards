@@ -383,7 +383,8 @@ router.get('/api/get/query',function(req,res){
 
 
 /**
- * GET '/api/delete/:id'
+ * GET '/api/
+ /:id'
  * Receives a GET request specifying the animal to delete
  * @param  {String} req.param('id'). The animalId
  * @return {Object} JSON
@@ -406,7 +407,8 @@ router.get('/api/delete/:id', function(req, res){
       message: 'Successfully deleted id ' + requestedId
     }
 
-    res.json(jsonData);
+    // res.json(jsonData);
+    return res.redirect('/directory');
 
   })
 })

@@ -23,7 +23,7 @@
 
       <!-- fill the blank -->
       <div id = addcards-content>  
-        <form method="post" action="/api/create" id="myForm">
+        <form method="post" action="/api/create/image" id="myForm" enctype="multipart/form-data">
 
           <div class="col-md-12 centered" >
             My friend <input id="name" name="name" autofocus> sent me this card from <input id="where" name="where" autofocus>, on <input id="month" name="month" autofocus>/<input id="date" name="date" placeholder="" autofocus>/<input id="year" name="year" placeholder="" autofocus> .
@@ -32,7 +32,7 @@
           <!-- upload images  -->
           <!-- <div class="col-md-4 centered" > -->
 
-          <!--  <div class="form-group">
+           <div class="form-group">
             <label for="image">Please upload the graphic side</label>
             <input type="file" name="image" id="image-input" value="Select a Photo">
           </div>
@@ -40,7 +40,7 @@
           <div class="form-group2">
             <label for="image">Please upload the content side</label>
             <input type="file" name="image" id="image-input" value="Select a Photo">
-          </div> -->
+          </div>
 
           <!-- <button type="submit" class="submit-button">Submit</button> -->
           <button type="submit" id="submitImg"><img src="img/submit.png" width="80px" height= "50px"></button>

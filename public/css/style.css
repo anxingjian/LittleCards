@@ -115,6 +115,8 @@ input{
   font-family: 'Muli', sans-serif;
   font-size:16px;
   border: none;
+  text-align: left;
+
 }
 
 .form-group2{
@@ -122,6 +124,8 @@ input{
   font-family: 'Muli', sans-serif;
   font-size:16px;
   border: none;
+  text-align: left;
+
 }
 
 #image-input{
