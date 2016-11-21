@@ -218,6 +218,7 @@ router.post('/api/create/image', multipartMiddleware, function(req,res){
   var filename = req.files.image.name; // actual filename of file
   var path = req.files.image.path; // will be put into a temp directory
   var mimeType = req.files.image.type; // image/jpeg or actual mime type
+
   
   // create a cleaned file name to store in S3
   // see cleanFileName function below
@@ -273,7 +274,7 @@ router.post('/api/create/image', multipartMiddleware, function(req,res){
           return res.json(jsonData);        
         })
 
-      }
+      }cleanFileName
 
     }); // end of putObject function
 
@@ -282,6 +283,7 @@ router.post('/api/create/image', multipartMiddleware, function(req,res){
 })
 
 function cleanFileName (filename) {
+  console.log(filename);
     
     // cleans and generates new filename for example userID=abc123 and filename="My Pet Dog.jpg"
     // will return "abc123_my_pet_dog.jpg"
