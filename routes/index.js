@@ -138,7 +138,9 @@ router.post('/api/create', function(req,res){
     where: req.body.where,
     month: req.body.month,
     date: req.body.date,
-    year: req.body.year
+    year: req.body.year,
+    imageUrl: req.body.imageUrl
+
   }
 
   var card = new Card(cardObj);
@@ -173,7 +175,9 @@ router.post('/api/edit/:id', function(req,res){
     where: req.body.where,
     month: req.body.month,
     date: req.body.date,
-    year: req.body.year
+    year: req.body.year,
+    imageUrl: req.body.imageUrl
+
   }
 
   console.log(cardObj);
@@ -202,6 +206,10 @@ router.post('/api/edit/:id', function(req,res){
 
 router.post('/api/create/image', multipartMiddleware, function(req,res){
 
+  JSON.stringify(req.files);
+
+  console.log("log"+req.files);
+
   console.log('the incoming data >> ' + JSON.stringify(req.body));
   console.log('the incoming image file >> ' + JSON.stringify(req.files.image));
 
@@ -213,73 +221,80 @@ router.post('/api/create/image', multipartMiddleware, function(req,res){
     year: req.body.year
   }
 
-  // NOW, we need to deal with the image
-  // the contents of the image will come in req.files (not req.body)
-  var filename = req.files.image.name; // actual filename of file
-  var path = req.files.image.path; // will be put into a temp directory
-  var mimeType = req.files.image.type; // image/jpeg or actual mime type
+  saveImagetoDb(req.files.image, 'imageUrl');
+  saveImagetoDb(req.files.image2, 'imageUrl2');
 
-  
-  // create a cleaned file name to store in S3
-  // see cleanFileName function below
-  var cleanedFileName = cleanFileName(filename);
+  var counter = 0;
 
-  // We first need to open and read the uploaded image into a buffer
-  fs.readFile(path, function(err, file_buffer){
+  function saveImagetoDb(submittedImage, key){
+    // NOW, we need to deal with the image
+    // the contents of the image will come in req.files (not req.body)
+    var filename = submittedImage.name; // actual filename of file
+    var path = submittedImage.path; // will be put into a temp directory
+    var mimeType = submittedImage.type; // image/jpeg or actual mime type
 
-    // reference to the Amazon S3 Bucket
-    var s3bucket = new AWS.S3({params: {Bucket: awsBucketName}});
-    
-    // Set the bucket object properties
-    // Key == filename
-    // Body == contents of file
-    // ACL == Should it be public? Private?
-    // ContentType == MimeType of file ie. image/jpeg.
-    var params = {
-      Key: cleanedFileName,
-      Body: file_buffer,
-      ACL: 'public-read',
-      ContentType: mimeType
-    };
-    
-    // Put the above Object in the Bucket
-    s3bucket.putObject(params, function(err, data) {
-      if (err) {
-        console.log(err)
-        return;
-      } else {
-        console.log("Successfully uploaded data to s3 bucket");
+    // create a cleaned file name to store in S3
+    // see cleanFileName function below
+    var cleanedFileName = cleanFileName(filename);
 
-        // now that we have the image
-        // we can add the s3 url our person object from above
-        cardObj['imageUrl'] = s3Path + cleanedFileName;
+    // We first need to open and read the uploaded image into a buffer
+    fs.readFile(path, function(err, file_buffer){
 
-        // now, we can create our person instance
-        var card = new Card(cardObj);
+      // reference to the Amazon S3 Bucket
+      var s3bucket = new AWS.S3({params: {Bucket: awsBucketName}});
+      
+      // Set the bucket object properties
+      // Key == filename
+      // Body == contents of file
+      // ACL == Should it be public? Private?
+      // ContentType == MimeType of file ie. image/jpeg.
+      var params = {
+        Key: cleanedFileName,
+        Body: file_buffer,
+        ACL: 'public-read',
+        ContentType: mimeType
+      };
+      
+      // Put the above Object in the Bucket
+      s3bucket.putObject(params, function(err, data) {
+        if (err) {
+          console.log(err)
+          return;
+        } else {
+          console.log("Successfully uploaded data to s3 bucket");
 
-        card.save(function(err,data){
-          if(err){
-            var error = {
-              status: "ERROR",
-              message: err
-            }
-            return res.json(err)
+          // now that we have the image
+          // we can add the s3 url our person object from above
+          cardObj[key] = s3Path + cleanedFileName;
+
+          counter++;
+
+          if(counter>1){
+            // now, we can create our person instance
+            var card = new Card(cardObj);
+
+            card.save(function(err,data){
+              if(err){
+                var error = {
+                  status: "ERROR",
+                  message: err
+                }
+                return res.json(err)
+              }
+
+              var jsonData = {
+                status: "OK",
+                card: data
+              }
+
+              // return res.json(jsonData);      
+              return res.redirect('/directory');
+            })
           }
-
-          var jsonData = {
-            status: "OK",
-            card: data
-          }
-
-          return res.json(jsonData);        
-        })
-
-      }cleanFileName
-
-    }); // end of putObject function
-
-  });// end of read file
-
+        }
+      }); // end of putObject function
+    });// end of read file
+  }
 })
 
 function cleanFileName (filename) {

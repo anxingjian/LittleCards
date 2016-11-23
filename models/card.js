@@ -8,8 +8,9 @@ var cardSchema = new Schema({
 	where:String,
 	month:Number,
 	date:Number,
-	year:Number
-
+	year:Number,
+	imageUrl: String,
+	imageUrl2: String
 })
 
 // export 'Person' model so we can interact with it in other files

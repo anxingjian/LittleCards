@@ -10,19 +10,25 @@ can.addEventListener('mousemove', function(e) {
 function redraw(mouse) {
     console.log('a');
     can.width = can.width;
-    ctx.drawImage(img, 0, 0);
+    ctx.drawImage(img, 0, 0,800,800*img.height/img.width);
     ctx.beginPath();
     ctx.rect(0,0,1000,1000);
-    ctx.arc(mouse.x, mouse.y, 70, 0, Math.PI*2, true)
+    ctx.arc(mouse.x-200, mouse.y-100, 70, 0, Math.PI*2, true)
     ctx.clip();
-    ctx.fillRect(0,0,1000,1000);
+
+    var img2 = document.getElementById("image");
+    ctx.drawImage(img2, 0, 0,800,800*img.height/img.width);
+    // ctx.fillStyle="blue";
+    // ctx.fillRect(0,0,1000,1000);
 }
 
+
 var img = new Image();
-img.onload = function() {
-    redraw({x: -500, y: -500})
-}
-img.src = 'https://static1.squarespace.com/static/57e6b0c08419c20a8e17b597/t/57f86df7bebafba899f476bb/1476565641650/?format=2500w';
+// img.onload = function() {
+//     redraw({x: -500, y: -500})
+// }
+img.src = 'https://s3.amazonaws.com/little-cards/1479862056395_babyblockingsound.jpg';
+
 
 // Creates an object with x and y defined,
 // set to the mouse position relative to the state's canvas

@@ -111,7 +111,7 @@ input{
 }
 
 .form-group{
-	padding-top:20%;
+	padding-top:8%;
   font-family: 'Muli', sans-serif;
   font-size:16px;
   border: none;
@@ -119,13 +119,23 @@ input{
 
 }
 
+.form-group > input
+{
+    display: none;
+}
+
 .form-group2{
-	padding-top:3%;
+	padding-top:1%;
   font-family: 'Muli', sans-serif;
   font-size:16px;
   border: none;
   text-align: left;
 
+}
+
+.form-group2 > input
+{
+    display: none;
 }
 
 #image-input{
@@ -149,20 +159,27 @@ input{
 }
 
 #submitImg{
-    background-color: Transparent; 
+  background-color: Transparent; 
   border:solid 0px;
   cursor:pointer;
-  padding-top: 5%;
+  padding-top: 2%;
 
 }
 
 #submitImg:hover{
-    background-color: Transparent; 
-    color:grey;
+  background-color: Transparent; 
+  color:grey;
   border:solid 0px;
   cursor:pointer;
-  padding-top: 5%;
+  padding-top: 2.2%;
 
+}
+
+
+/*directory*/
+
+#directory-button{
+  padding-top: 5%;
 }
 
 /*windmill*/

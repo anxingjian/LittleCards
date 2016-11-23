@@ -23,7 +23,7 @@
 
       <!-- fill the blank -->
       <div id = addcards-content>  
-        <form method="post" action="/api/create/image" id="myForm" enctype="multipart/form-data">
+        <form method="post" action="/api/create/image" id="myForm" enctype="multipart/form-data" autocomplete="off">
 
           <div class="col-md-12 centered" >
             My friend <input id="name" name="name" autofocus> sent me this card from <input id="where" name="where" autofocus>, on <input id="month" name="month" autofocus>/<input id="date" name="date" placeholder="" autofocus>/<input id="year" name="year" placeholder="" autofocus> .
@@ -33,13 +33,13 @@
           <!-- <div class="col-md-4 centered" > -->
 
            <div class="form-group">
-            <label for="image">Please upload the graphic side</label>
+            <label for="image-input"><img src="img/postcard-graphic.png" width="100"></label>
             <input type="file" name="image" id="image-input" value="Select a Photo">
           </div>
 
           <div class="form-group2">
-            <label for="image">Please upload the content side</label>
-            <input type="file" name="image" id="image-input" value="Select a Photo">
+            <label for="image-input"><img src="img/postcard-content.png" width="100"></label>
+            <input type="file" name="image2" id="image-input" value="Select a Photo2">
           </div>
 
           <!-- <button type="submit" class="submit-button">Submit</button> -->
@@ -49,7 +49,7 @@
         </form>
       </div>
 <!-- wind mill -->
-      <div class="windmill">
+<!--       <div class="windmill">
         <div class="stick"></div>
         <div class="wind">
           <div class="wind1"></div>
@@ -57,7 +57,7 @@
           <div class="wind3"></div>
           <div class="wind4"></div>
         </div>
-      </div>
+      </div> -->
 
     </div>
   </div>
