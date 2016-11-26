@@ -42,7 +42,7 @@ input{
 }
 
 .home-section{
-	background-image: url(img/paper2.jpg) ;
+	background-image: url(img/paper.jpg) ;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -82,6 +82,19 @@ input{
 
 /*add card page*/
 
+.add-cards-bg{
+  background-image: url(img/paper2.jpg) ;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  min-width: 100%;
+  min-height: 100%;
+}
+
 #name{
   width: 15%;
 }
@@ -110,69 +123,56 @@ input{
   font-size:2.2em;
 }
 
-.form-group{
-	padding-top:8%;
+#form-group{
+
+  padding-top:3%;
+  padding-left: 8%;
   font-family: 'Muli', sans-serif;
   font-size:16px;
   border: none;
   text-align: left;
-
 }
 
-.form-group > input
+#form-group > input
 {
     display: none;
 }
 
-.form-group2{
-	padding-top:1%;
+#form-group2{
+  padding-left: 8%;
+	padding-top:3%;
   font-family: 'Muli', sans-serif;
   font-size:16px;
   border: none;
   text-align: left;
-
+  cursor:pointer;
 }
 
-.form-group2 > input
+#form-group2 > input
 {
     display: none;
-}
-
-#image-input{
-  border: none;
-  font-size:16px;
-
 }
 
 .submit-button{
 	z-index: 999;
-	margin:20px 0px 100px 0px;
+	margin:80px 0px 100px 0px;
 	background-color: Transparent; 
-	/*color:black;*/
 	border:solid 3px;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 12pt;
-	text-align: center;
 	cursor:pointer;
-
 	text-decoration: none;
 }
 
 #submitImg{
   background-color: Transparent; 
-  border:solid 0px;
   cursor:pointer;
-  padding-top: 2%;
-
 }
 
 #submitImg:hover{
   background-color: Transparent; 
   color:grey;
-  border:solid 0px;
   cursor:pointer;
-  padding-top: 2.2%;
-
 }
 
 
@@ -180,110 +180,6 @@ input{
 
 #directory-button{
   padding-top: 5%;
-}
-
-/*windmill*/
-
-.windmill{
-  width:1000px;
-  height:0px;
-  position:relative;
-  margin:100px auto;
-}
-.stick{
-  width:6px;
-  height:200px;
-  position:absolute;
-  background:#FFF;
-  top:50px;
-  left:47px;
-  border: 3px solid;
-  border-color:black;
-}
-
-.wind{
-  width:100px;
-  height:100px;
-  position:absolute;
-  animation:rotates 2s infinite linear;
-  -moz-animation:rotates 2s infinite linear;
-  -webkit-animation:rotates 2s infinite linear;
-  -o-animation:rotates 2s infinite linear;
-}
-/*center button*/
-.wind:after{
-  content:"";
-  position:absolute;
-  top:45px;
-  left:45px;
-  width:14px;height:14px;
-  background:#FFF;
-  border: 3px solid;
-  border-color:black;
-  border-radius:50%;
-}
-.wind1,.wind2,.wind3,.wind4{
-  width:100px;
-  height:50px;
-  position:absolute;
-  margin:13px 0 0 -40px;
-  background:#FFF;
-  border-bottom-left-radius:50% 100%;
-  border: 3px solid;
-  border-color:black;
-}
-
-.wind1{
-  transform:rotate(45deg);
-  -moz-transform:rotate(45deg);
-  -webkit-transform:rotate(45deg);
-  -o-transform:rotate(45deg);
-  background:#FFF; 
-}
-
-.wind2{
-  left:63px;
-  top:-28px;
-  transform:rotate(135deg);
-  -moz-transform:rotate(135deg);
-  -webkit-transform:rotate(135deg);
-  -o-transform:rotate(135deg);
-  background:#FFF;
-}
-.wind3{
-  left:92px;
-  top:35px;
-  transform:rotate(225deg);
-  -moz-transform:rotate(225deg);
-  -webkit-transform:rotate(225deg);
-  -o-transform:rotate(225deg);
-  background:#FFF;
-}
-.wind4{
-  left:29px;
-  top:63px;
-  transform:rotate(315deg);
-  -moz-transform:rotate(315deg);
-  -webkit-transform:rotate(315deg);
-  -o-transform:rotate(315deg);
-  background:#FFF;
-}
-
-@keyframes rotates{
-  form{transform:rotate(0deg);}
-  to{transform:rotate(-360deg);}
-}
-@-moz-keyframes rotates{
-  form{-moz-transform:rotate(0deg);}
-  to{-moz-transform:rotate(-360deg);}
-}
-@-webkit-keyframes rotates{
-  form{-webkit-transform:rotate(0deg);}
-  to{-webkit-transform:rotate(-360deg);}
-}
-@-o-keyframes rotates{
-  form{-o-transform:rotate(0deg);}
-  to{-o-transform:rotate(-360deg);}
 }
 
 
