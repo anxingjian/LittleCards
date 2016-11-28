@@ -123,39 +123,38 @@ input{
   font-size:2.2em;
 }
 
-#form-group{
-
-  padding-top:3%;
-  padding-left: 8%;
+.form-group{
+  /*margin-top: 8%;*/
+  /*padding-left: 8%;*/
   font-family: 'Muli', sans-serif;
   font-size:16px;
   border: none;
-  text-align: left;
+  cursor:pointer;
+
 }
 
-#form-group > input
+.form-group > input
 {
     display: none;
 }
 
-#form-group2{
-  padding-left: 8%;
-	padding-top:3%;
+.form-group2{
+  /*margin-top: 8%;*/
   font-family: 'Muli', sans-serif;
   font-size:16px;
   border: none;
-  text-align: left;
   cursor:pointer;
 }
 
-#form-group2 > input
+.form-group2 > input
 {
     display: none;
 }
 
 .submit-button{
 	z-index: 999;
-	margin:80px 0px 100px 0px;
+  /*padding-left:50%;*/
+	margin:40px 0px 100px 0px;
 	background-color: Transparent; 
 	border:solid 3px;
 	font-family: 'Montserrat', sans-serif;
@@ -182,7 +181,11 @@ input{
   padding-top: 5%;
 }
 
+/*cardpage
+*/
+#card-page-holder{
 
+}
 
 /***************************/
 /* Default Form Input Code */

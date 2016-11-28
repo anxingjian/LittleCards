@@ -19,23 +19,35 @@
   <!-- Custom CSS inside CSS folder -->
   <link rel="stylesheet" href="css/card-page.css">
 
+
 </head>
 
 <body>
-  <div class="container" method="post" action="/api/create" id="myForm">
+  <div class="container-fluid" method="post" action="/api/create" id="myForm">
+
+    <!-- <div class="row" id="card-page-holder"> -->
     <div class="row">
-      <!-- <h1>Let's add an ITP Person</h1> -->
+      <div class = "col-md-5" centered id="card-page-holder">
+      <div id="chartdiv"></div>   
+      </div>
 
-      <div class="col-md-6 col-md-offset-3" >
-
-        <canvas id="canvas1" width="800px" height="800px">
-
+      <div class="col-md-6" >
+        <canvas id="canvas1" width="720px" height="800px">
           <img id="image" src="https://s3.amazonaws.com/little-cards/1479862056395_61d263fbe36220faa0fc020ca39624ca_b.png">
         </canvas>
+      </div>
+
     </div>
-</div>
-</div>
+ 
+  </div>
 </body>
+
+<script src="https://www.amcharts.com/lib/3/ammap.js"></script>
+<script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
 
 <!-- JQuery script -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 

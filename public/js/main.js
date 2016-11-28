@@ -51,7 +51,6 @@ function renderPeeps(){
 }
 
 
-
 window.addEventListener('load', init())
 
 
