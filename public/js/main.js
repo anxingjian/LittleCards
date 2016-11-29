@@ -18,10 +18,12 @@ function renderPeeps(){
 			var cards = response.cards;
 
 			for(var i=0;i<cards.length;i++){
-				var htmlToAdd = '<div class="col-md-4">'+
+				var htmlToAdd = 
+				' <div class="directory-section">'+
+				'<div class="col-md-4">'+
 
 					// '<h1>'+cards[i].name+'</h1>'+
-					'<img src='+cards[i].imageUrl+' width="100">'+
+					'<img src='+cards[i].imageUrl+' width="300">'+
 					// '<ul>'+
 					// 	'<li>From where: '+cards[i].where+'</li>'+
 					// 	'<li>Date: '+cards[i].month+
@@ -39,7 +41,8 @@ function renderPeeps(){
                     '<button id="deleteButton" type="button"  > Delete</button>'+
 					'</a>'+
 
-					'</div>'
+					'</div>'+
+					'</div>'+
 
 					// '<button type="button" id="'+cards[i]._id+'" onclick="deleteAnimal(event)">Delete Animal</button>'
 				'</div>';

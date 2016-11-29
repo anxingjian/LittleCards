@@ -129,6 +129,56 @@ router.get('/edit/:id', function(req,res){
 })
 
 
+router.get('/card/:id', function(req,res){
+
+  var requestedId = req.params.id;
+
+  Card.findById(requestedId,function(err,data){
+    if(err){
+      var error = {
+        status: "ERROR",
+        message: err
+      }
+      return res.json(err)
+    }
+
+    console.log(data); 
+
+    var viewData = {
+      pageTitle: "Card " + data.name,
+      card: data
+    }
+
+    res.render('card-page.html',viewData);
+
+  })
+
+})
+
+
+router.get('/card/:id', function(req,res){
+
+  var requestedId = req.params.id;
+
+  Card.findById(requestedId,function(err,data){
+    if(err){
+      var error = {
+        status: "ERROR",
+        message: err
+      }
+      return res.json(err)
+    }
+
+    var viewData = {
+      status: "OK",
+      card: data
+    }
+
+    return res.render('card-page.html',viewData);
+  })
+})
+
+
 router.post('/api/create', function(req,res){
 
   console.log(req.body);
@@ -199,6 +249,43 @@ router.post('/api/edit/:id', function(req,res){
     //return res.json(jsonData);
 
     return res.redirect('/directory');
+
+  })
+
+})
+
+router.post('/api/card/:id', function(req,res){
+
+  console.log(req.body);
+  var requestedId = req.params.id;
+
+  var cardObj = {
+    name: req.body.name,
+    where: req.body.where,
+    month: req.body.month,
+    date: req.body.date,
+    year: req.body.year,
+    imageUrl: req.body.imageUrl
+  }
+
+  console.log(cardObj);
+
+  Card.findByIdAndUpdate(requestedId,cardObj,function(err,data){
+    if(err){
+      var error = {
+        status: "ERROR",
+        message: err
+      }
+      return res.json(error)
+    }
+
+    var jsonData = {
+      status: "OK",
+      card: data
+    }
+
+    return res.json(jsonData);
+    // return res.redirect('/directory');
 
   })
 

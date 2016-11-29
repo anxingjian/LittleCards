@@ -66,7 +66,7 @@ input{
   font-weight: bold;
   font-family: 'IM Fell DW Pica SC', serif;
   font-size: 18pt;
-  text-align: center;
+  /*text-align: center;*/
   cursor:pointer;
   text-decoration: none;
 }
@@ -123,14 +123,18 @@ input{
   font-size:2.2em;
 }
 
+.submit-button-test{
+  text-align: center;
+
+}
+
 .form-group{
-  /*margin-top: 8%;*/
+  margin-top: 20px;
   /*padding-left: 8%;*/
   font-family: 'Muli', sans-serif;
   font-size:16px;
   border: none;
-  cursor:pointer;
-
+  vertical-align: middle;
 }
 
 .form-group > input
@@ -139,11 +143,11 @@ input{
 }
 
 .form-group2{
-  /*margin-top: 8%;*/
+  margin-top: 20px;
   font-family: 'Muli', sans-serif;
   font-size:16px;
   border: none;
-  cursor:pointer;
+  vertical-align: middle;
 }
 
 .form-group2 > input
@@ -154,7 +158,8 @@ input{
 .submit-button{
 	z-index: 999;
   /*padding-left:50%;*/
-	margin:40px 0px 100px 0px;
+  text-align: center;
+	/*margin:40px 0px 100px 0px;*/
 	background-color: Transparent; 
 	border:solid 3px;
 	font-family: 'Montserrat', sans-serif;
@@ -163,12 +168,8 @@ input{
 	text-decoration: none;
 }
 
-#submitImg{
-  background-color: Transparent; 
-  cursor:pointer;
-}
 
-#submitImg:hover{
+.submit-button:hover{
   background-color: Transparent; 
   color:grey;
   cursor:pointer;
@@ -181,11 +182,29 @@ input{
   padding-top: 5%;
 }
 
-/*cardpage
-*/
+#cards-holder{
+  margin:40px 0px 100px 0px;
+}
+
+/*.directory-section{
+  background-image: url(img/paper2.jpg) ;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  min-width: 100%;
+  min-height: 100%;
+}*/
+
+/*cardpage*/
 #card-page-holder{
 
 }
+
+
 
 /***************************/
 /* Default Form Input Code */
