@@ -141,6 +141,7 @@ router.get('/edit/:id', function(req,res){
 router.get('/card/:id', function(req,res){
 
   var requestedId = req.params.id;
+  console.log('the requestedId is --> ' + requestedId)
 
   Card.findById(requestedId,function(err,data){
     if(err){
@@ -165,27 +166,27 @@ router.get('/card/:id', function(req,res){
 })
 
 
-router.get('/card/:id', function(req,res){
+// router.get('/card/:id', function(req,res){
 
-  var requestedId = req.params.id;
+//   var requestedId = req.params.id;
 
-  Card.findById(requestedId,function(err,data){
-    if(err){
-      var error = {
-        status: "ERROR",
-        message: err
-      }
-      return res.json(err)
-    }
+//   Card.findById(requestedId,function(err,data){
+//     if(err){
+//       var error = {
+//         status: "ERROR",
+//         message: err
+//       }
+//       return res.json(err)
+//     }
 
-    var viewData = {
-      status: "OK",
-      card: data
-    }
+//     var viewData = {
+//       status: "OK",
+//       card: data
+//     }
 
-    return res.render('card-page.html',viewData);
-  })
-})
+//     return res.render('card-page.html',viewData);
+//   })
+// })
 
 router.post('/api/create', function(req,res){
 
@@ -197,7 +198,8 @@ router.post('/api/create', function(req,res){
     month: req.body.month,
     date: req.body.date,
     year: req.body.year,
-    imageUrl: req.body.imageUrl
+    imageUrl: req.body.imageUrl,
+    imageUrl: req.body.imageUrl2
 
   }
 
@@ -273,7 +275,9 @@ router.post('/api/card/:id', function(req,res){
     month: req.body.month,
     date: req.body.date,
     year: req.body.year,
-    imageUrl: req.body.imageUrl
+    imageUrl: req.body.imageUrl,
+    imageUrl2: req.body.imageUrl2
+
   }
 
   console.log(cardObj);

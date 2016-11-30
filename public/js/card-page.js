@@ -65,10 +65,12 @@ function redraw(mouse) {
 }
 
 
-var img = new Image();
-
 // bottom
-img.src = 'https://s3.amazonaws.com/little-cards/1479872759356_babyblockingsound.jpg';
+// pull out the correct image 
+var imgSrc = document.getElementById('image2').src;
+
+var img = new Image();
+img.src = imgSrc;
 
 
 // Creates an object with x and y defined,

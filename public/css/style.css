@@ -224,20 +224,25 @@ input{
 
 #editButton{
   margin-right: 5px;
+    color:white;
+  background-color: black;
 }
 
 #editButton:hover{
-  color:white;
-  background-color: black;
+  color:black;
+  background-color: white;
 }
 
 #deleteButton{
   margin-left: 5px;
+    color:white;
+  background-color: black;
 }
 
 #deleteButton:hover{
-  color:white;
-  background-color: black;
+
+    color:black;
+  background-color: white;
 }
 
 
@@ -246,7 +251,18 @@ input{
 
 }
 
+.holder{
+  position: relative;
+}
 
+.Absolute-Center {
+  width: 50%;
+  height: 40px;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
 
 /***************************/
 /* Default Form Input Code */
