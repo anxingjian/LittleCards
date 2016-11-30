@@ -18,8 +18,11 @@ var s3 = new AWS.S3();
 
 // file processing dependencies
 var fs = require('fs');
-var multipart = require('connect-multiparty');
-var multipartMiddleware = multipart();
+// var multipart = require('connect-multiparty');
+// var multipartMiddleware = multipart();
+
+var multer  = require('multer');
+var upload = multer({ dest: 'uploads/' });
 
 /**
  * GET '/'
@@ -52,6 +55,12 @@ router.get('/card-page', function(req,res){
   res.render('card-page.html')
 
 })
+
+// router.get('/card/:id', function(req,res){
+
+//   res.render('card-page.html')
+
+// })
 
 router.get('/add-person', function(req,res){
 
@@ -178,7 +187,6 @@ router.get('/card/:id', function(req,res){
   })
 })
 
-
 router.post('/api/create', function(req,res){
 
   console.log(req.body);
@@ -291,14 +299,15 @@ router.post('/api/card/:id', function(req,res){
 
 })
 
-router.post('/api/create/image', multipartMiddleware, function(req,res){
+var cpUpload = upload.fields([
+  { name: 'imageUrl2' },
+  { name: 'imageUrl' }
+])
+router.post('/api/create/image', cpUpload, function(req,res){
 
-  JSON.stringify(req.files);
-
-  console.log("log"+req.files);
-
-  console.log('the incoming data >> ' + JSON.stringify(req.body));
-  console.log('the incoming image file >> ' + JSON.stringify(req.files.image));
+  console.log(req.files);
+  console.log(req.files.imageUrl[0]);
+  console.log(req.files.imageUrl2[0]);
 
   var cardObj = {
     name: req.body.name,
@@ -308,17 +317,18 @@ router.post('/api/create/image', multipartMiddleware, function(req,res){
     year: req.body.year
   }
 
-  saveImagetoDb(req.files.image, 'imageUrl');
-  saveImagetoDb(req.files.image2, 'imageUrl2');
+  saveImagetoDb(req.files.imageUrl[0], 'imageUrl');
+  saveImagetoDb(req.files.imageUrl2[0], 'imageUrl2');
 
   var counter = 0;
 
   function saveImagetoDb(submittedImage, key){
+
     // NOW, we need to deal with the image
     // the contents of the image will come in req.files (not req.body)
-    var filename = submittedImage.name; // actual filename of file
+    var filename = submittedImage.originalname; // actual filename of file
     var path = submittedImage.path; // will be put into a temp directory
-    var mimeType = submittedImage.type; // image/jpeg or actual mime type
+    var mimeType = submittedImage.mimetype; // image/jpeg or actual mime type
 
     // create a cleaned file name to store in S3
     // see cleanFileName function below

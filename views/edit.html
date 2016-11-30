@@ -7,25 +7,68 @@
     <title>{{pageTitle}}</title>
 
     <!-- Custom Font - Change 'Muli' to the font you want -->
-    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- Custom CSS inside CSS folder -->
     <link rel="stylesheet" href="css/style.css">
-
-  
+    
   </head>
+
   <body>
 
+  <div class="add-cards-bg">
+    <div class="container-fluid" >
+      <form method="post" action="/api/edit/{{card._id}}" id="myForm" enctype="multipart/form-data" autocomplete="off">
 
-  <div class="container">
+        <div class="row" id = "addcards-content">
+          <!-- fill the blank -->
+          <div class="col-md-12 centered" >
+            My friend <input id="name" name="name" value="{{card.name}}" required autofocus> sent me this card from <input id="where" name="where" value="{{card.where}}" required autofocus>, on <input id="month" name="month" value="{{card.month}}" required autofocus>/<input id="date" name="date" placeholder="" value="{{card.date}}" required autofocus>/<input id="year" name="year" placeholder="" value="{{card.year}}" required autofocus> .
+          </div>
+        </div>
+
+        <!-- upload images  -->
+        <div class = "add-page-icon">
+        <div class="row">
+          <div class="col-md-1 col-md-offset-1">
+            <div class="form-group">
+              <label for="image-input"><img src="img/postcard-graphic.png" width="80"></label>
+              <input type="file" name="image" id="image-input" value="Select a Photo">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+          <div class="form-group2">
+              <label for="image-input"><img src="img/postcard-content.png" width="80"></label>
+              <input type="file" name="image2" id="image-input" value="Select a Photo2">
+            </div>
+          </div>
+        </div>
+
+       <div class="submit-button-test">
+        <button type="submit" class="submit-button" id="submitImg">Archive</button>
+
+        </div>
+      </form>
+    </div>
+    <!-- <button id="submitButton" type="submit" class="submit-button" >Submit</button> -->
+  </div>
+
+  
+ <!--  <div class="container">
     <div class="row">
       <div class="col-md-8">
         <h1>Let's edit an ITP Person</h1>
         <form method="post" action="/api/edit/{{card._id}}">
           <div class="form-group">
+
             <label for="name">Name</label>
             <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="{{card.name}}" required>
           </div>
@@ -51,9 +94,8 @@
       </div>
     </div>
   </div>
-  
+   -->
 </body>
-
     <!-- JQuery script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 
@@ -62,23 +104,31 @@
 
     <!-- JQuery validate -->
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
-    
-    <script type="text/javascript">
-      $("form").validate({
-          rules: {
-            // compound rule
-            itpYear: {
-              required: true,
-              number: true
-            },
-            link: {
-              required: true,
-              url: true
-            }            
-          }
 
-      });
-    </script>
+<script type="text/javascript">
+  $("#myForm").validate({
+    rules: {
+      theInput:{
+        required: true
+      },
+      where:{
+        required: true
+      },
+      month: {
+        required: true,
+        number: true
+      },
+      date: {
+        required: true,
+        number: true
+      },   
+      year: {
+        required: true,
+        number: true
+      }      
+    }
+  });
+</script>
 
 
 </html>

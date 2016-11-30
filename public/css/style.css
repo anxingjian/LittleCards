@@ -83,7 +83,7 @@ input{
 /*add card page*/
 
 .add-cards-bg{
-  background-image: url(img/paper2.jpg) ;
+  background-image: url(img/paper.jpg) ;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -170,34 +170,76 @@ input{
 
 
 .submit-button:hover{
-  background-color: Transparent; 
-  color:grey;
+/*  background-color: Transparent; 
+  color:grey;*/
+  background-color: black;
+  color:white;
   cursor:pointer;
+  border-color: black;
 }
 
 
 /*directory*/
 
-#directory-button{
+.directory-button{
   padding-top: 5%;
 }
 
 #cards-holder{
-  margin:40px 0px 100px 0px;
+  margin:60px 0px 60px 0px;
 }
 
-/*.directory-section{
-  background-image: url(img/paper2.jpg) ;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  min-width: 100%;
-  min-height: 100%;
-}*/
+.directory-section{
+  position: relative;
+  /*float:left;*/
+  /*margin:5px;*/
+}
+
+.directory-section:hover img{
+  opacity: 0.5;
+}
+
+.directory-button{
+  /*position: absolute;*/
+  text-align: center;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+
+.directory-button a {
+  font-family: 'IM Fell DW Pica SC', serif;
+  font-size:15px;
+  padding: 4px;
+  text-align: center;
+  color: black;
+  border: solid 2.3px black;
+  z-index: 10;
+  text-decoration: none;
+}
+
+.directory-section:hover .directory-button {
+  opacity: 1;
+}
+
+
+#editButton{
+  margin-right: 5px;
+}
+
+#editButton:hover{
+  color:white;
+  background-color: black;
+}
+
+#deleteButton{
+  margin-left: 5px;
+}
+
+#deleteButton:hover{
+  color:white;
+  background-color: black;
+}
+
 
 /*cardpage*/
 #card-page-holder{

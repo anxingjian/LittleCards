@@ -1,3 +1,47 @@
+function init() {
+  renderPeeps();
+}
+
+function hpAdd(){
+    console.log("hi");
+}
+
+function renderPeeps(){
+    jQuery.ajax({
+        url : '/api/get',
+        dataType : 'json',
+        success : function(response) {
+            console.log(response);
+
+            var cards = response.cards;
+
+            for(var i=0;i<cards.length;i++){
+                var htmlToAdd = 
+                '<div class = "container">'+
+                '<div class = "row">'+
+                '<div class="col-md-4 col-md-offset-1">'+
+
+                    '<h2>'+cards[i].name+' send me this card from '+
+                    cards[i].where+'</h2>'+
+                    // '<img src='+cards[i].imageUrl+' width="100">'+
+                    // cards[i]._id
+                '</div>'+
+                '</div>'+
+                '</div>';
+            
+                jQuery("#card-page-holder").append(htmlToAdd);
+            }
+        }
+    })  
+}
+
+
+window.addEventListener('load', init())
+
+
+
+
+
 var can = document.getElementById('canvas1');
 var ctx = can.getContext('2d');
 
@@ -56,46 +100,3 @@ function getMouse(e, canvas) {
         y: my
     };
 }
-
-
-function init() {
-  renderPeeps();
-}
-
-function hpAdd(){
-    console.log("hi");
-}
-
-function renderPeeps(){
-    jQuery.ajax({
-        url : '/api/get',
-        dataType : 'json',
-        success : function(response) {
-            console.log(response);
-
-            var cards = response.cards;
-
-            for(var i=0;i<cards.length;i++){
-                var htmlToAdd = 
-                '<div class = "container">'+
-                '<div class = "row">'+
-                '<div class="col-md-1">'+
-
-                    // '<h1>'+cards[i].name+'</h1>'+
-                    // '<img src='+cards[i].imageUrl+' width="100">'+
-                '</div>'+
-                '</div>'+
-                '</div>';
-            
-                jQuery("#card-page-holder").append(htmlToAdd);
-            }
-        }
-    })  
-}
-
-
-window.addEventListener('load', init())
-
-
-
-

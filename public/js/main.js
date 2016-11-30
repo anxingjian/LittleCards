@@ -19,32 +19,30 @@ function renderPeeps(){
 
 			for(var i=0;i<cards.length;i++){
 				var htmlToAdd = 
-				' <div class="directory-section">'+
-				'<div class="col-md-4">'+
+				'<div class="directory-section">'+
+				'<div class="col-md-3">'+
 
 					// '<h1>'+cards[i].name+'</h1>'+
-					'<img src='+cards[i].imageUrl+' width="300">'+
-					// '<ul>'+
-					// 	'<li>From where: '+cards[i].where+'</li>'+
-					// 	'<li>Date: '+cards[i].month+
-					// 	'/'+cards[i].date+
-					// 	'/'+cards[i].year+'</li>'+
-					// '</ul>'+
+					'<a href="/card/'+cards[i]._id+'">'+
+					'<img src='+cards[i].imageUrl+' width="250">'+
+					'</a>'+
 
-					// '<a href="/edit/'+cards[i]._id+'">Edit</a>'+
-					'<div id = "directory-button">'+
-					'<a href="/edit/'+cards[i]._id+'">'+
-                    '<button id="editButton" type="button"  > Edit</button>'+
+
+					'<div class = "directory-button">'+
+
+					'<a id="editButton" href="/edit/'+cards[i]._id+'">'+
+                    // '<button id="editButton" type="button"> Edit</button>'+
+                    'Edit'+
 					'</a>'+
 					
-					'<a href="/api/delete/'+cards[i]._id+'">'+
-                    '<button id="deleteButton" type="button"  > Delete</button>'+
+					'<a id="deleteButton" href="/api/delete/'+cards[i]._id+'">'+
+                    // '<button id="deleteButton" type="button"> Delete</button>'+
+                    'Delete'+
 					'</a>'+
 
 					'</div>'+
-					'</div>'+
+				'</div>'+
 
-					// '<button type="button" id="'+cards[i]._id+'" onclick="deleteAnimal(event)">Delete Animal</button>'
 				'</div>';
 			
 				jQuery("#cards-holder").append(htmlToAdd);
@@ -56,5 +54,43 @@ function renderPeeps(){
 
 window.addEventListener('load', init())
 
+
+
+ // var toggleState = false;
+
+
+ // var $folded = $('.folded').oriDomi({
+ //     ripple: 1,
+ //     shading: 'soft',
+ //     shadingIntensity: 0,
+ //     perspective: 1000
+ // });
+ // $folded.oriDomi('accordion', 50);
+ //    $('.flyer')
+ // $('span.fold').click(function() {
+ //     if (toggleState) {
+ //         $(this).html("Fold");
+ //         $folded.oriDomi('accordion', 0);
+ //         $('.container').animate({
+ //             marginLeft: -200
+ //         }, 900, function() {});
+ //     } else {
+ //         $(this).html("Unfold");
+ //         $folded.oriDomi('accordion', 50);
+ //         $('.container').animate({
+ //             marginLeft: 0
+ //         }, 900, function() {});
+ //     }
+ //     toggleState = !toggleState;
+ // });
+
+
+ // $('span#hotspot-one').hover(function() {
+ //     $('.tooltip.tip-one').fadeToggle();
+ // });
+
+ // $('span#hotspot-two').hover(function() {
+ //     $('.tooltip.tip-two').fadeToggle();
+ // });
 
 

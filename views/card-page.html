@@ -23,23 +23,24 @@
 </head>
 
 <body>
-  <div class="container-fluid" method="post" action="/api/create" id="myForm">
+  <div class="container-fluid" method="post" action="/api/edit/{{card._id}}">
 
     <!-- <div class="row" id="card-page-holder"> -->
     <div class="row">
       <div class = "col-md-5" centered id="card-page-holder">
-      <!-- <div id="chartdiv"></div>    -->
       </div>
 
       <div class="col-md-6" >
         <canvas id="canvas1" width="720px" height="800px">
+
         <!-- top  -->
 
 <!--             <input type="text" class="form-control" id="imageUrl" placeholder="imageUrl" name="imageUrl" value="{{card.imageUrl}}"required> -->
             
-          <img id="image" src="{{card.imageUrl}}">
+          <!-- <img id="image" src="{{card.imageUrl}}"> -->
 
-          <!-- <img id="image" src="https://s3.amazonaws.com/little-cards/1480134346160_61d263fbe36220faa0fc020ca39624ca_b.png"> -->
+<!-- original -->
+          <img id="image" src="https://s3.amazonaws.com/little-cards/1480134346160_61d263fbe36220faa0fc020ca39624ca_b.png">
         </canvas>
       </div>
 
