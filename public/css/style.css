@@ -2,17 +2,45 @@
 /* Custom CSS */
 /**************/
 
+body{
+  background-color:#EBEBEB;
+}
+
 a{
   color:black;
 }
+
 h1{
-  /*font-family: 'Rock Salt', cursive;*/
-  /*font-family: 'Homemade Apple', cursive;*/
-  /*font-family: 'Cedarville Cursive', cursive;*/
   font-family: 'IM Fell DW Pica SC', serif;
   text-align: center;
   font-size:5em;
   padding-top: 20%
+}
+
+#header{
+  z-index: 99999;
+  position: relative;
+  text-align: center;
+}
+
+h2{
+  /*font-family: 'IM Fell DW Pica SC', serif;*/
+  font-family: 'Alegreya Sans SC', sans-serif;
+  color:#FFF;
+  text-align: center;
+  font-size:1.2em;
+  padding-top: 1%;
+  text-decoration: none;
+}
+
+h2:hover{
+  color:#000;
+  cursor:pointer;
+}
+
+a{
+    text-decoration: none;
+
 }
 
 input{
@@ -129,8 +157,7 @@ input{
 }
 
 .form-group{
-  margin-top: 20px;
-  /*padding-left: 8%;*/
+  margin-top: 40px;
   font-family: 'Muli', sans-serif;
   font-size:16px;
   border: none;
@@ -143,7 +170,7 @@ input{
 }
 
 .form-group2{
-  margin-top: 20px;
+  margin-top: 40px;
   font-family: 'Muli', sans-serif;
   font-size:16px;
   border: none;
@@ -159,11 +186,12 @@ input{
 	z-index: 999;
   /*padding-left:50%;*/
   text-align: center;
+  margin-top: 10px;
 	/*margin:40px 0px 100px 0px;*/
 	background-color: Transparent; 
 	border:solid 3px;
 	font-family: 'Montserrat', sans-serif;
-	font-size: 12pt;
+	font-size: 14pt;
 	cursor:pointer;
 	text-decoration: none;
 }
@@ -189,10 +217,9 @@ input{
   margin:60px 0px 60px 0px;
 }
 
-.directory-section{
-  position: relative;
-  /*float:left;*/
-  /*margin:5px;*/
+#directory-section{
+
+
 }
 
 .directory-section:hover img{
@@ -263,6 +290,7 @@ input{
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
 }
+
 
 /***************************/
 /* Default Form Input Code */
