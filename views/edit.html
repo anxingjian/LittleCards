@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{pageTitle}}</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{pageTitle}}</title>
 
-    <!-- Custom Font - Change 'Muli' to the font you want -->
+  <!-- Custom Font - Change 'Muli' to the font you want -->
   <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
-  <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-    <!-- Custom CSS inside CSS folder -->
-    <link rel="stylesheet" href="/css/style.css">
+  <!-- Custom CSS inside CSS folder -->
+  <link rel="stylesheet" href="/css/style.css">
 
-  </head>
+</head>
 
-  <body>
+<body>
+
+  <div id="header" class="row" data-spy="affix" >
+    <!-- <a href="/"><h2>please send me a little card</h2></a> -->
+  <a href="/"><img src="/img/header.png"></img></a>
+  </div>
 
   <div class="add-cards-bg">
     <div class="container-fluid" >
@@ -35,26 +39,23 @@
         </div>
 
         <!-- upload images  -->
-        <div class = "add-page-icon">
-        <div class="row">
-          <div class="col-md-1 col-md-offset-1">
-            <div class="form-group">
-              <label for="image-input"><img src="/img/postcard-graphic.png" width="80"></label>
-              <input type="file" name="image" id="image-input" value="Select a Photo">
-            </div>
+
+        <div class="row add-card-forms">
+          <div class="form-group">
+
+            <label for="image-input"><img src="/img/postcard-graphic.png" width="80"></label>
+            <input type="file" name="imageUrl" id="image-input">
           </div>
 
-          <div class="col-md-6">
           <div class="form-group2">
-              <label for="image-input"><img src="/img/postcard-content.png" width="80"></label>
-              <input type="file" name="image2" id="image-input" value="Select a Photo2">
-            </div>
+
+            <label for="image-input2"><img src="/img/postcard-content.png" width="80"></label>
+            <input type="file" name="imageUrl2" id="image-input2">
           </div>
         </div>
 
-       <div class="submit-button-test">
-        <button type="submit" class="submit-button" id="submitImg">Archive</button>
-
+        <div class="submit-button-test">
+          <button type="submit" class="submit-button" id="submitImg">Archive This Card : )</button>
         </div>
       </form>
     </div>
@@ -94,16 +95,16 @@
       </div>
     </div>
   </div>
-   -->
+-->
 </body>
-    <!-- JQuery script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+<!-- JQuery script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 
-    <!-- CUSTOM JS -->
-    <script src="/js/main.js"></script>
+<!-- CUSTOM JS -->
+<script src="/js/main.js"></script>
 
-    <!-- JQuery validate -->
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+<!-- JQuery validate -->
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
 
 <script type="text/javascript">
   $("#myForm").validate({

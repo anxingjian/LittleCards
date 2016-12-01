@@ -19,13 +19,7 @@ function renderPeeps(){
                 var htmlToAdd = 
                 '<div class = "container">'+
                 '<div class = "row">'+
-                '<div class="col-md-4 col-md-offset-1">'+
-
-                    '<h2>'+cards[i].name+' send me this card from '+
-                    cards[i].where+'</h2>'+
-                    // '<img src='+cards[i].imageUrl+' width="100">'+
-                    // cards[i]._id
-                '</div>'+
+               
                 '</div>'+
                 '</div>';
             
@@ -53,16 +47,26 @@ can.addEventListener('mousemove', function(e) {
 
 function redraw(mouse) {
     console.log('a');
-    can.width = can.width;
-    ctx.drawImage(img, 0, 0,720,720*img.height/img.width);
+    can.width = can.width+30;
+    ctx.drawImage(img, 0, 30,720,720*img.height/img.width);
     ctx.beginPath();
     ctx.rect(0,0,800,800);
-    ctx.arc(mouse.x-50, mouse.y-50, 70, 0, Math.PI*2, true)
+    ctx.arc(mouse.x-50, mouse.y-130, 80, 0, Math.PI*2, true);
+
+    ctx.shadowColor = '#575757';
+    ctx.shadowBlur = 30;
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 5;
+        // -webkit-box-shadow: inset 0px 0px 166px 166px rgba(0,0,0,1);
+
     ctx.clip();
 
     var img2 = document.getElementById("image");
-    ctx.drawImage(img2, 0, 0,780,780*img.height/img.width);
+    ctx.drawImage(img2, 0, 30,720,720*img.height/img.width);
 }
+
+
+
 
 
 // bottom
@@ -102,3 +106,4 @@ function getMouse(e, canvas) {
         y: my
     };
 }
+

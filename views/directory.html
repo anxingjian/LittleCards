@@ -8,10 +8,10 @@
 
   <!-- Custom Font - Change 'Muli' to the font you want -->
   <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
-  <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -21,27 +21,36 @@
 
 <body>
 
-  <div class="container" id = "directory-section">
+  <div id="header" class="row" data-spy="affix" >
+  <a href="/"><img src="/img/header.png"></img></a>
+  <!-- <a href="/"><h2>please send me a little card</h2></a> -->
+  </div>
+
+
+<!-- 
+  <div class="flyer-wrap folded">
+  <div class="flyer ">
+  </div>
+  </div>
+ -->
+
+  <div class="container" id = "directory-container">
+  
     <div class="row" id="cards-holder">
 
     </div>
   </div>
 
-<!-- 
-<div class="container"> 
-  <div class="flyer-wrap folded">
-  <div class="flyer front">
-    <span class="title">Flyer Frontside</span>
+
+  <div id="gobottom">
+   <a href="#bottom"><img src="/img/bottom.png"></img></a>
   </div>
   
-</div>
-</div>
 
-<div class="instructions">
+<!-- <div class="instructions">
 <span class="fold">Unfold</span>
 </div>
  -->
-
 </body>
 
 <!-- JQuery script -->
@@ -50,11 +59,18 @@
 <!-- include jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
+<script>
+  $("a[href='#bottom']").click(function() {
+  $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+  return false;
+});
+</script>
 
 <!-- CUSTOM JS -->
-<script src="js/oridomi.js"></script>
-<script src="js/oridomi.min.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/oridomi.js"></script>
+<script src="/js/oridomi.min.js"></script>
+<script src="js/script.js"></script>
 
+<script src="/js/main.js"></script>
 
 </html>

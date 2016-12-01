@@ -1,6 +1,7 @@
 #canvas1{
-    padding-top:15%;
+    padding-top:11%;
     /*padding-left: 30%;*/
+
 }
 
 /*chart*/
@@ -14,5 +15,14 @@
 h2{
   font-family: 'IM Fell DW Pica SC', serif;
   font-size:1.5em;
-  padding-top: 20%
+  margin-top: 115%;
+  padding-right:6%;
+  text-align: right;
+}
+
+#header{
+  z-index: 99999;
+  position: relative;
+  text-align: center;
+  padding-top:4%;
 }

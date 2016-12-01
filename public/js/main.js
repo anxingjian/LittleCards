@@ -20,13 +20,19 @@ function renderPeeps(){
 			for(var i=0;i<cards.length;i++){
 				var htmlToAdd = 
 				'<div class="directory-section">'+
-				'<div class="col-md-3 holder">'+
+				'<div class="col-md-3 holder ">'+
 
-					// '<h1>'+cards[i].name+'</h1>'+
+					// '<div class="flyer-wrap folded">'+
+					// '<div class="flyer">'+
+
+					'<div class="cards-section">'+
 					'<a href="/card/'+cards[i]._id+'">'+
 					'<img src='+cards[i].imageUrl+' width="250">'+
 					'</a>'+
+					'</div>'+
 
+					// '</div>'+
+					// '</div>'+
 
 					'<div class="directory-button Absolute-Center">'+
 
@@ -42,7 +48,6 @@ function renderPeeps(){
 
 					'</div>'+
 				'</div>'+
-
 				'</div>';
 			
 				jQuery("#cards-holder").append(htmlToAdd);
@@ -54,43 +59,5 @@ function renderPeeps(){
 
 window.addEventListener('load', init())
 
-
-
- // var toggleState = false;
-
-
- // var $folded = $('.folded').oriDomi({
- //     ripple: 1,
- //     shading: 'soft',
- //     shadingIntensity: 0,
- //     perspective: 1000
- // });
- // $folded.oriDomi('accordion', 50);
- //    $('.flyer')
- // $('span.fold').click(function() {
- //     if (toggleState) {
- //         $(this).html("Fold");
- //         $folded.oriDomi('accordion', 0);
- //         $('.container').animate({
- //             marginLeft: -200
- //         }, 900, function() {});
- //     } else {
- //         $(this).html("Unfold");
- //         $folded.oriDomi('accordion', 50);
- //         $('.container').animate({
- //             marginLeft: 0
- //         }, 900, function() {});
- //     }
- //     toggleState = !toggleState;
- // });
-
-
- // $('span#hotspot-one').hover(function() {
- //     $('.tooltip.tip-one').fadeToggle();
- // });
-
- // $('span#hotspot-two').hover(function() {
- //     $('.tooltip.tip-two').fadeToggle();
- // });
 
 

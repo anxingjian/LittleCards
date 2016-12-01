@@ -23,24 +23,35 @@
 </head>
 
 <body>
+<div id="header" class="row" data-spy="affix" >
+  <a href="/directory"><img src="/img/back.png"></img></a>
+  <!-- <a href="/"><h2>please send me a little card</h2></a> -->
+  </div>
+
   <div class="container-fluid" method="post" action="/api/card/{{card._id}}">
 
     <!-- <div class="row" id="card-page-holder"> -->
     <div class="row">
-      <div class = "col-md-5" centered id="card-page-holder">
+      <div class = "col-md-4 col-md-offset-1" centered id="card-page-holder">
+
+      <h2> {{card.name}} sent me this card from <b>{{card.where}}</b><br>{{card.month}} . {{card.date}} . {{card.year}}<br /></h2>
+
       </div>
 
-      <div class="col-md-6" >
+      <div class="col-md-6">
+
+
         <canvas id="canvas1" width="720px" height="800px">
 
         <!-- top  -->
-
 <!--             <input type="text" class="form-control" id="imageUrl" placeholder="imageUrl" name="imageUrl" value="{{card.imageUrl}}"required> -->
-            
-          <img id="image" src="{{card.imageUrl}}">
+          <div class="image-shadow">
 
-<!-- original -->
+          <img id="image" src="{{card.imageUrl}}">
           <img id="image2" src="{{card.imageUrl2}}" style="display: none">
+
+          </div>
+
         </canvas>
       </div>
 

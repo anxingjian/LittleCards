@@ -21,11 +21,12 @@
 <body>
 
   <div id="header" class="row" data-spy="affix" >
-  <a href="/"><h2>please send me a little card</h2></a>
+  <a href="/"><img src="/img/header.png"></img></a>
+    <!-- <a href="/"><h2>please send me a little card</h2></a> -->
   </div>
 
   <!-- <div class="add-cards-bg"> -->
-    <div class="container-fluid add-cards-bg" >
+  <div class="container-fluid add-cards-bg" >
       <form method="post" action="/api/create/image" id="myForm" enctype="multipart/form-data" autocomplete="off">
 
         <div class="row" id = "addcards-content">
@@ -37,20 +38,24 @@
 
         <!-- upload images  -->
         <!-- <div class = "add-page-icon"> -->
-        <div class="row">
-          <div class="col-md-1 col-md-offset-5 form-group">
+        <div class="row add-card-forms">
+          <!-- <div class="col-md-1 col-md-offset-5 form-group"> -->
+          <div class="form-group">
+
             <label for="image-input"><img src="img/postcard-graphic.png" width="80"></label>
             <input type="file" name="imageUrl" id="image-input">
           </div>
 
-          <div class="col-md-6 form-group2">
+          <!-- <div class="col-md-6 form-group2"> -->
+          <div class="form-group2">
+
             <label for="image-input2"><img src="img/postcard-content.png" width="80"></label>
             <input type="file" name="imageUrl2" id="image-input2">
           </div>
         </div>
 
         <div class="submit-button-test">
-          <button type="submit" class="submit-button" id="submitImg">Archive</button>
+          <button type="submit" class="submit-button" id="submitImg">Archive This Card : )</button>
         </div>
       </form>
     </div>
