@@ -22,17 +22,11 @@ function renderPeeps(){
 				'<div class="directory-section">'+
 				'<div class="col-md-3 holder ">'+
 
-					// '<div class="flyer-wrap folded">'+
-					// '<div class="flyer">'+
-
 					'<div class="cards-section">'+
 					'<a href="/card/'+cards[i]._id+'">'+
 					'<img src='+cards[i].imageUrl+' width="250">'+
 					'</a>'+
 					'</div>'+
-
-					// '</div>'+
-					// '</div>'+
 
 					'<div class="directory-button Absolute-Center">'+
 
