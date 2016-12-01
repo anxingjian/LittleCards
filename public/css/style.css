@@ -297,10 +297,10 @@ input{
 
 
 #gobottom{
-  position: fixed;
+  position: relative;
   text-align: right;
   padding-right:4%;
-  padding-top: 90%;
+  /*padding-top: 90%;*/
   z-index: 999999;
 }
 

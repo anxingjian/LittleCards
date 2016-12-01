@@ -49,6 +49,7 @@ function redraw(mouse) {
     console.log('a');
     can.width = can.width+30;
     ctx.drawImage(img, 0, 30,720,720*img.height/img.width);
+
     ctx.beginPath();
     ctx.rect(0,0,800,800);
     ctx.arc(mouse.x-50, mouse.y-130, 80, 0, Math.PI*2, true);
